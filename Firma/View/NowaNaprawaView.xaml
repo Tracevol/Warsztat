@@ -1,0 +1,63 @@
+﻿<local:JedenViewBase x:Class="Firma.View.NowaNaprawaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Firma.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="MainWindowResources.xaml"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="63*"/>
+            <ColumnDefinition Width="53*"/>
+        </Grid.ColumnDefinitions>
+
+
+
+        <Grid Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+
+
+            </Grid.RowDefinitions>
+
+            <!--<ToolBar Grid.Row="0" Grid.Column="0" Height="30" Margin="0,2,0,2">
+                <ToggleButton Content="Zapisz i zamknij" Height="30" Width="Auto" Command="{Binding SaveCommand}"/>
+                <Separator/>
+                <ToggleButton Content="Anuluj" Height="30" Width="Auto"/>
+            </ToolBar>-->
+            <Label Grid.Row="1" Grid.Column="0" Content="Nazwa"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path= Nazwa, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Data przyjęcia"/>
+            <DatePicker Grid.Row="2" Grid.Column="1" SelectedDate="{Binding Path=DataPrzyjecia, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Data oddania"/>
+            <DatePicker Grid.Row="3" Grid.Column="1" SelectedDate="{Binding Path=DataOddania, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="Koszt brutto"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path= KosztBrutto, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Row="5" Grid.Column="0" Content="Status realizacji"/>
+            <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Path= StatusRealizacji, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Row="6" Grid.Column="0" Content="Uwagi"/>
+            <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Path= Uwagi, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Row="7" Grid.Column="0" Content="Opiekun"/>
+            <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Path=Opiekun, UpdateSourceTrigger=PropertyChanged}"/>
+
+        </Grid>
+    </Grid>
+</local:JedenViewBase>
+

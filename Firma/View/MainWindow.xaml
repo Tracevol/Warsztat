@@ -1,0 +1,601 @@
+﻿<Window x:Class="Firma.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Firma"
+        mc:Ignorable="d"
+        Title="Warsztat 2020" Height="450" Width="800" WindowState="Maximized">
+    <Window.Resources>
+        <ResourceDictionary Source="MainWindowResources.xaml"/>
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <!--Menu item-->
+        <Menu Grid.Column="0" Grid.Row="0" Margin="5">
+
+            <!--1 menuItem-->
+            <MenuItem Header="_Akta osobowe" >
+                <MenuItem Header="Kartoteka osobowa" InputGestureText="Ctrl+A"  Command="{Binding CreateKartotekaOsobowa}">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/Menu Boczne/kartoteka.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Badania lekarskie" InputGestureText="Ctrl+C" Command="{Binding CreateBadaniaLekarskie}">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/Menu Boczne/badania lekarskie.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Szkolenia okresowe" Command="{Binding CreateSzkoleniaOkresowe}">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/Menu Boczne/user.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Historia" Command="{Binding CreateHistoria}">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/Menu Boczne/dokument.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Oddziały" Command="{Binding CreateOdzialy}">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/Menu Boczne/user.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Wnioski urlopowe" Command="{Binding CreateWnioskiUrlopowe}">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/Raporty/raporty.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+            </MenuItem>
+
+
+            <!--2 menuItem-->
+            <MenuItem Header="_Baza danych" >
+                <MenuItem Header="_Nowa" InputGestureText="Ctrl+N">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/DataBase/add_new.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="_Utworz" InputGestureText="Ctrl+U">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/DataBase/open_folder.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="_Eksport" InputGestureText="Ctrl+U">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/DataBase/import_export.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+
+                <MenuItem Header="_Import" InputGestureText="Ctrl+U">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/DataBase/import_export.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="_Zamknij" InputGestureText="Ctrl+Z">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/DataBase/close_folder.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Zamknij wszystkie bazy danych" InputGestureText="Ctrl+X">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/DataBase/close_folder.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Zakończ">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/DataBase/shutdown.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+            </MenuItem>
+
+            <!--3 menuItem-->
+
+            <MenuItem Header="_Narzędzia">
+
+                <MenuItem Header="_Kontrachenci" InputGestureText="Alt+K" Command="{Binding CreateKontaktCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/Menu Boczne/user.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Sprzeda_ż detaliczna">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/Narzędzia/barcode.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+
+                <MenuItem Header="Zadządzanie drukarką fiskalną">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/Narzędzia/money.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+
+                <MenuItem Header="Zadządzanie wieloma bazami danych">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/DataBase/import_export.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+
+                <MenuItem Header="Kalkulator odsetkowy">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/Narzędzia/wyciągi bankowe.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+
+                <MenuItem Header="Edytor szablonów">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/Narzędzia/settings.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+
+                <MenuItem Header="Pokaż czas działania programu">
+                    <MenuItem.Icon>
+                        <Image Source="/Firma;component/Content/Raporty/raporty.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+            </MenuItem>
+
+            <!--4 menuItem-->
+            <MenuItem Header="_Ustawienia">
+
+                <MenuItem Header="Użytkownicy">
+                    <MenuItem Header="Lista użytkowników"/>
+                    <MenuItem Header="Zarządzanie widokiem Panelu Menu"/>
+                    <Separator/>
+                    <MenuItem Header="Zarządzanie konfiguracjami"/>
+                </MenuItem>
+
+                <MenuItem Header="Zaawansowane"/>
+                <Separator/>
+
+                <MenuItem Header="Dane o użytkowniku">
+
+                </MenuItem>
+                <MenuItem Header="Dane o firmie"/>
+
+
+
+            </MenuItem>
+
+        </Menu>
+
+
+
+        <!--Górne menu-->
+
+        <ToolBar Grid.Column="0" Grid.Row="1" Margin="2">
+
+            <ToggleButton Background="Azure" ToolTip="Nowy towar" Command="{Binding CreateTowarCommand}" >
+                <Image Source="/Firma;component/Content/Buttons/shopping-cart.png"/>
+            </ToggleButton>
+
+            <ToggleButton  Background="Azure" ToolTip="Ustawienia">
+                <Image Source="/Firma;component/Content/Buttons/settings.png"/>
+            </ToggleButton>
+            <Separator/>
+
+
+            <ToggleButton Background="Azure" ToolTip="Dodaj fakture" Command="{Binding DodajFaktureCommand}">
+                <Image Source="/Firma;component/Content/Buttons/szuflada.png"/>
+            </ToggleButton>
+
+            <ToggleButton Background="Azure" ToolTip="Kalendarz">
+                <Image Source="/Firma;component/Content/Buttons/calendar.png"/>
+            </ToggleButton>
+            <Separator/>
+
+            <ToggleButton Background="Azure" ToolTip="Terminarz" >
+                <Image Source="/Firma;component/Content/Buttons/timetable.png"/>
+            </ToggleButton>
+
+            <ToggleButton Background="Azure" ToolTip="Nowy kontakt" Command="{Binding CreateKontaktCommand}" >
+                <Image Source="/Firma;component/Content/Buttons/notes.png"/>
+            </ToggleButton>
+
+            <!--Dodaj pracownika-->
+            <Button Background="Azure" ToolTip="Nowy pracownik" Command="{Binding CreateOsobaCommand}">
+                <Image Source="/Firma;component/Content/Buttons/user.png"/>
+            </Button>
+
+            <Separator/>
+
+            <ToggleButton Background="Azure" ToolTip="E-mail" >
+                <Image Source="/Firma;component/Content/Buttons/post.png"/>
+            </ToggleButton>
+
+            <ToggleButton Background="Azure" ToolTip="Powiadomienia" >
+                <Image Source="/Firma;component/Content/Buttons/bell.png"/>
+            </ToggleButton>
+
+
+        </ToolBar>
+
+
+        <Grid Grid.Column="0" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="158*"/>
+                <ColumnDefinition Width="71*"/>
+                <ColumnDefinition Width="563*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <!--<HeaderedContentControl Header="Menu" Background="Aqua"
+                Content="{Binding Path=Commands}"
+                ContentTemplate="{StaticResource CommandsTemplate}"
+                Style="{StaticResource MainHCCStyle}"/>-->
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+
+                <!--Akta osobowe-->
+                <Expander Grid.Row="0" Header="Akta osobowe" Style="{StaticResource ExpanderMenu}"  Grid.ColumnSpan="3">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Menu Grid.Row="0">
+                            <MenuItem Header="Kartoteka osobowa" Command="{Binding CreateKartotekaOsobowa}">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/kartoteka.png"/>
+                                </MenuItem.Icon>
+
+                            </MenuItem>
+                        </Menu>
+
+                        <Menu Grid.Row="1">
+                            <MenuItem Header="Badania lekarskie" Command="{Binding CreateBadaniaLekarskie}">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/badania lekarskie.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+                        <Menu Grid.Row="2">
+                            <MenuItem Header="Szkolenia okresowe"  Command="{Binding CreateSzkoleniaOkresowe}">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/user.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+                        <Menu Grid.Row="3">
+                            <MenuItem Header="Historia"  Command="{Binding CreateHistoria}">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/user.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+                        <Menu Grid.Row="4">
+                            <MenuItem Header="Oddziały" Command="{Binding CreateOdzialy}">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/user.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+                        <Menu Grid.Row="5">
+                            <MenuItem Header="Wnioski urlopowe"  Command="{Binding CreateWnioskiUrlopowe}">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/user.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+                        <Menu Grid.Row="6">
+                            <MenuItem Header="Faktura"  Command="{Binding FakturaCommand}">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/user.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+                    </Grid>
+                </Expander>
+
+                <!--Dokumenty kasowe-->
+                <Expander Grid.Row="1" Header="Dokumenty kasowe" Style="{StaticResource ExpanderMenu}"  Grid.ColumnSpan="3">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Menu Grid.Row="0">
+                            <MenuItem Header="Produkty" Command="{Binding CreateProduktCommand}">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/dokument.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+                        <Menu Grid.Row="1">
+                            <MenuItem Header="Dodaj produkt" Command="{Binding CreateAddProduktCommand}">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/dokument.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+                        <Menu Grid.Row="2">
+                            <MenuItem Header="Nowa naprawa" Command="{Binding DodajNapraweCommand}">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/dokument.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+                        <Menu Grid.Row="3">
+                            <MenuItem Header="Kasy">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/kasa.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+                    </Grid>
+                </Expander>
+
+                <!--Raporty-->
+                <Expander Grid.Row="2" Header="Raporty" Style="{StaticResource ExpanderMenu}" Grid.ColumnSpan="3" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="11*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Menu Grid.Row="0" Grid.ColumnSpan="2">
+                            <MenuItem Header="Wszystkie naprawy" Command="{Binding WszystkieNaprawyCommand}">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/dokument.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+
+                        <Menu Grid.Row="1" Grid.ColumnSpan="2">
+                            <MenuItem Header="Finanse">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Narzędzia/money.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+
+                        <Menu Grid.Row="2" Grid.ColumnSpan="2">
+                            <MenuItem Header="Magazyn (produkty/zysk)">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/magazyn.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+
+                        <Menu Grid.Row="3" Grid.ColumnSpan="2">
+                            <MenuItem Header="Rejestr VAT">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Raporty/vat.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+
+                        <Menu Grid.Row="4" Grid.ColumnSpan="2">
+                            <MenuItem Header="Statystyki">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Raporty/statystyka.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+
+                        <Menu Grid.Row="5" Grid.ColumnSpan="2">
+                            <MenuItem Header="Wypożyczenia">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Raporty/car-rental.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+                        <Menu Grid.Row="6" Grid.ColumnSpan="2">
+                            <MenuItem Header="Wyciągi bankowe">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/kasa.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+                        <Menu Grid.Row="7" Grid.ColumnSpan="2">
+                            <MenuItem Header="Zestawienie przesyłek">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Narzędzia/zamównienie.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+
+                        <Menu Grid.Row="8" Grid.ColumnSpan="2">
+                            <MenuItem Header="Zestawienie nadanych przesyłek">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Narzędzia/zamównienie.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+
+                    </Grid>
+                </Expander>
+
+                <!--Projekty-->
+
+                <Expander Grid.Row="3" Header="Projekty"  Style="{StaticResource ExpanderMenu}" Grid.ColumnSpan="3" >
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Menu Grid.Row="0">
+                            <MenuItem Header="Projekty">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/kartoteka.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+                        <Menu Grid.Row="1">
+                            <MenuItem Header="Wypowiedzi">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/Zapytania.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+                    </Grid>
+
+                </Expander>
+
+                <!--Oferty i zapytania-->
+                <Expander Grid.Row="4" Header="Oferty i zapytyania" Style="{StaticResource ExpanderMenu}" Grid.ColumnSpan="3">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Menu Grid.Row="0">
+                            <MenuItem Header="Wszystkie">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/dokument.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+                        <Menu Grid.Row="1">
+                            <MenuItem Header="Oferty wychodzące">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/dokument.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+                        <Menu Grid.Row="2">
+                            <MenuItem Header="Oferty przychodzące">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/dokument.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+                        <Menu Grid.Row="3">
+                            <MenuItem Header="Zapytania przychodzące">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/Zapytania.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+                        <Menu Grid.Row="4">
+                            <MenuItem Header="Zapytania wychodzące">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Menu Boczne/Zapytania.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+                        <Menu Grid.Row="5">
+                            <MenuItem Header="Produkty w ofertach">
+                                <MenuItem.Icon>
+                                    <Image Source="/Firma;component/Content/Narzędzia/zamównienie.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </Menu>
+
+                    </Grid>
+
+
+                </Expander>
+
+            </Grid>
+
+
+
+            <Border Grid.Column="1" Grid.ColumnSpan="2">
+                <HeaderedContentControl Header="Menu"
+                Content="{Binding Path=Workspaces}"
+                ContentTemplate="{StaticResource WorkspacesTemplate}"
+                Style="{StaticResource MainHCCStyle}"/>
+
+
+
+            </Border>
+        </Grid>
+        <StatusBar Grid.Column="0" Grid.Row="3" Background="Azure">
+            <StatusBarItem>
+                <TextBlock>Piotr Węgrzyn</TextBlock>
+            </StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock> WSB-NLU</TextBlock>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>

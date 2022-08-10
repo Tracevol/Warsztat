@@ -1,0 +1,70 @@
+﻿<local:JedenViewBase x:Class="Firma.View.AddProduktView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Firma.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="MainWindowResources.xaml"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="63*"/>
+            <ColumnDefinition Width="53*"/>
+        </Grid.ColumnDefinitions>
+
+
+
+        <Grid Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+
+            <!--<ToolBar Grid.Row="0" Grid.Column="0" Height="30" Margin="0,2,0,2">
+                <ToggleButton Content="Zapisz i zamknij" Height="30" Width="Auto" Command="{Binding SaveCommand}"/>
+                <Separator/>
+                <ToggleButton Content="Anuluj" Height="30" Width="Auto"/>
+            </ToolBar>-->
+            <Label Grid.Row="1" Grid.Column="0" Content="Nazwa"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path= Nazwa, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Producent"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path= Producent, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Sztuk"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path= Sztuk, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="Cenna Netto"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path= CennaNetto, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Row="5" Grid.Column="0" Content="Cenna Brutto"/>
+            <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Path= CennaBrutto, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Row="6" Grid.Column="0" Content="Stawka Vat"/>
+            <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Path= StawkaVat, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Row="7" Grid.Column="0" Content="Kod kreskowy"/>
+            <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Path= KodKreskowy, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Row="8" Grid.Column="0" Content="Nr seryjny"/>
+            <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding Path= NrSeryjny, UpdateSourceTrigger=PropertyChanged}" />
+            <Label Grid.Row="9" Grid.Column="0" Content="Waluta"/>
+            <TextBox Grid.Row="9" Grid.Column="1" Text="{Binding Path= Waluta, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <!--<Label Grid.Row="10" Grid.Column="0" Content="ID oddziału"/>
+            <TextBox Grid.Row="10" Grid.Column="1" Text="{Binding Path= IdOddzialu, UpdateSourceTrigger=PropertyChanged}"/>-->
+
+        </Grid>
+    </Grid>
+</local:JedenViewBase>

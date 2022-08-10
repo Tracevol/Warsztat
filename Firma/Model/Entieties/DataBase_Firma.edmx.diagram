@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="85176aaee3f34d2d9dffb41eaf74f90e" Name="Diagram1">
+        <EntityTypeShape EntityType="MVVMFirmaModel.Adresy" Width="1.5" PointX="10.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVVMFirmaModel.Badania_Lekarskie" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVVMFirmaModel.Faktura" Width="1.5" PointX="15.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVVMFirmaModel.Historia" Width="1.5" PointX="8.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVVMFirmaModel.Indeks_Produktow" Width="1.5" PointX="15.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVVMFirmaModel.Karta_Pracy" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVVMFirmaModel.Kartoteka_Osobowa" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVVMFirmaModel.KategoriaHistorii" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVVMFirmaModel.Klient" Width="1.5" PointX="13" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVVMFirmaModel.Magazyn" Width="1.5" PointX="13" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVVMFirmaModel.Naprawa_i_Wymiany" Width="1.5" PointX="17.5" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVVMFirmaModel.Oddzialy" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVVMFirmaModel.Pojazdy" Width="1.5" PointX="15.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVVMFirmaModel.Produkty_w_Dokumentach" Width="1.5" PointX="17.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVVMFirmaModel.Sposob_Platnosci" Width="1.5" PointX="13" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVVMFirmaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVVMFirmaModel.Szkolenia_Okresowe" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVVMFirmaModel.Wnioski_Urlopowe" Width="1.5" PointX="5.25" PointY="17.375" IsExpanded="true" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Klient_Adresy" ManuallyRouted="false" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Magazyn_Adresy" ManuallyRouted="false" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Badania_Lekarskie_Kartoteka_Osobowa" ManuallyRouted="false" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Faktura_Klient" ManuallyRouted="false" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Faktura_Sposob_Platnosci" ManuallyRouted="false" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Produkty_w_Dokumentach_Faktura" ManuallyRouted="false" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Historia_Kartoteka_Osobowa" ManuallyRouted="false" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Historia_KategoriaHistorii" ManuallyRouted="false" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Indeks_Produktow_Magazyn" ManuallyRouted="false" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Magazyn_Indeks_Produktow" ManuallyRouted="false" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Produkty_w_Dokumentach_Indeks_Produktow" ManuallyRouted="false" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Karta_Pracy_Kartoteka_Osobowa" ManuallyRouted="false" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Kartoteka_Osobowa_Oddzialy" ManuallyRouted="false" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Szkolenia_Okresowe_Kartoteka_Osobowa" ManuallyRouted="false" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Wnioski_Urlopowe_Kartoteka_Osobowa" ManuallyRouted="false" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Pojazdy_Klient" ManuallyRouted="false" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Produkty_w_Dokumentach_Magazyn" ManuallyRouted="false" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Naprawa_i_Wymiany_Pojazdy" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MVVMFirmaModel.Pozycja_Faktury" Width="1.5" PointX="19.75" PointY="5.875" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Pozycja_Faktury_Faktura" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Pozycja_Faktury_Indeks_Produktow" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Pozycja_Faktury_Naprawa_i_Wymiany" />
+        <AssociationConnector Association="MVVMFirmaModel.FK_Pozycja_Faktury_Sposob_Platnosci" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2F0E8147-EBB3-40AE-B2C3-6F815757C062}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Firma</RootNamespace>
+    <AssemblyName>Firma</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Helpers\BaseCommand.cs" />
+    <Compile Include="Model\EntietiesForView\BadaniaLekarskieForView.cs" />
+    <Compile Include="Model\EntietiesForView\DodajFaktureForView.cs" />
+    <Compile Include="Model\EntietiesForView\FakturaForView.cs" />
+    <Compile Include="Model\EntietiesForView\HistoriaForView.cs" />
+    <Compile Include="Model\EntietiesForView\IndeksProduktowForView.cs" />
+    <Compile Include="Model\EntietiesForView\KartotekaOsobowaForView.cs" />
+    <Compile Include="Model\EntietiesForView\KategoriaHistoriiForView.cs" />
+    <Compile Include="Model\EntietiesForView\KeyAndValue.cs" />
+    <Compile Include="Model\EntietiesForView\NaprawaForView.cs" />
+    <Compile Include="Model\EntietiesForView\SzkoleniaOkresoweForView.cs" />
+    <Compile Include="Model\EntietiesForView\WnioskiUrlopoweForView.cs" />
+    <Compile Include="Model\Entieties\Adresy.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\Badania_Lekarskie.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\DataBase_Firma.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBase_Firma.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\DataBase_Firma.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\DataBase_Firma.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBase_Firma.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\Faktura.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\Historia.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\Indeks_Produktow.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\Karta_Pracy.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\Kartoteka_Osobowa.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\KategoriaHistorii.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\Klient.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\Magazyn.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\Naprawa_i_Wymiany.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\Oddzialy.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\Pojazdy.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\Pozycja_Faktury.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\Produkty_w_Dokumentach.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\Sposob_Platnosci.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\sp_helpdiagrams_Result.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\sysdiagrams.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\Szkolenia_Okresowe.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entieties\Wnioski_Urlopowe.cs">
+      <DependentUpon>DataBase_Firma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Validatory\BiznesValidator.cs" />
+    <Compile Include="Model\Validatory\StringValidator.cs" />
+    <Compile Include="Model\Validatory\Validator.cs" />
+    <Compile Include="ViewModel\Abstract\AddViewModel.cs" />
+    <Compile Include="ViewModel\Abstract\WszystkieViewModel.cs" />
+    <Compile Include="ViewModel\AddProduktViewModel.cs" />
+    <Compile Include="ViewModel\BadaniaLekarskieViewModel.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\CommandViewModel.cs" />
+    <Compile Include="ViewModel\DodajFaktureViewModel.cs" />
+    <Compile Include="ViewModel\DodajOsobeViewModel.cs" />
+    <Compile Include="ViewModel\FakturaViewModel.cs" />
+    <Compile Include="ViewModel\HistoriaViewModel.cs" />
+    <Compile Include="ViewModel\IndeksProduktowViewModel.cs" />
+    <Compile Include="ViewModel\KartotekaOsobowaViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\KategoriaHistoriiViewModel.cs" />
+    <Compile Include="ViewModel\NowaFakturaViewModel.cs" />
+    <Compile Include="ViewModel\NowaNaprawaViewModel.cs" />
+    <Compile Include="ViewModel\NowaOsobaViewModel.cs" />
+    <Compile Include="ViewModel\NowyKontaktViewModel.cs" />
+    <Compile Include="ViewModel\NowyTowarViewModel.cs" />
+    <Compile Include="ViewModel\OdzialyViewModel.cs" />
+    <Compile Include="ViewModel\SzkoleniaOkresoweViewModel.cs" />
+    <Compile Include="ViewModel\WnioskiUrlopoweViewModel.cs" />
+    <Compile Include="ViewModel\WorkspaceViewModel.cs" />
+    <Compile Include="ViewModel\WszystkieNaprawyViewModel.cs" />
+    <Compile Include="View\AddProduktView.xaml.cs">
+      <DependentUpon>AddProduktView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BadaniaLekarskie.xaml.cs">
+      <DependentUpon>BadaniaLekarskie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DodajFaktureView.xaml.cs">
+      <DependentUpon>DodajFaktureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DodajOsobe.xaml.cs">
+      <DependentUpon>DodajOsobe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FakturaView.xaml.cs">
+      <DependentUpon>FakturaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Historia.xaml.cs">
+      <DependentUpon>Historia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Indeks_ProduktowView.xaml.cs">
+      <DependentUpon>Indeks_ProduktowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\JedenViewBase.cs" />
+    <Compile Include="View\KartotekaOsobowa.xaml.cs">
+      <DependentUpon>KartotekaOsobowa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowaFakturaView.xaml.cs">
+      <DependentUpon>NowaFakturaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowaNaprawaView.xaml.cs">
+      <DependentUpon>NowaNaprawaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowaOsobaView.xaml.cs">
+      <DependentUpon>NowaOsobaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowyKontaktView.xaml.cs">
+      <DependentUpon>NowyKontaktView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowyTowarView.xaml.cs">
+      <DependentUpon>NowyTowarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Odzialy.xaml.cs">
+      <DependentUpon>Odzialy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SzkoleniaOkresowe.xaml.cs">
+      <DependentUpon>SzkoleniaOkresowe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WnioskiUrlopowe.xaml.cs">
+      <DependentUpon>WnioskiUrlopowe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszystkieNaprawyView.xaml.cs">
+      <DependentUpon>WszystkieNaprawyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszystkieViewBase.cs" />
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AddProduktView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BadaniaLekarskie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DodajFaktureView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DodajOsobe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FakturaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Historia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Indeks_ProduktowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\KartotekaOsobowa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\MainWindowResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowaFakturaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowaNaprawaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowaOsobaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowyKontaktView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowyTowarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Odzialy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SzkoleniaOkresowe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WnioskiUrlopowe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszystkieNaprawyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\Entieties\DataBase_Firma.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DataBase_Firma.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\Entieties\DataBase_Firma.edmx.diagram">
+      <DependentUpon>DataBase_Firma.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Content\Buttons\bell.png" />
+    <Resource Include="Content\Buttons\calendar.png" />
+    <Resource Include="Content\Buttons\notes.png" />
+    <Resource Include="Content\Buttons\post.png" />
+    <Resource Include="Content\Buttons\settings.png" />
+    <Resource Include="Content\Buttons\shopping-cart.png" />
+    <Resource Include="Content\Buttons\szuflada.png" />
+    <Resource Include="Content\Buttons\timetable.png" />
+    <Resource Include="Content\Buttons\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\DataBase\add_new.png" />
+    <Resource Include="Content\DataBase\backup.png" />
+    <Resource Include="Content\DataBase\close_folder.png" />
+    <Resource Include="Content\DataBase\import_export.png" />
+    <Resource Include="Content\DataBase\open_folder.png" />
+    <Resource Include="Content\DataBase\shutdown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Raporty\badanie samochodu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Raporty\car-rental.png" />
+    <Resource Include="Content\Raporty\naprawa.png" />
+    <Resource Include="Content\Raporty\petrol.png" />
+    <Resource Include="Content\Raporty\przebieg samochodu.png" />
+    <Resource Include="Content\Raporty\raporty.png" />
+    <Resource Include="Content\Raporty\samochod.png" />
+    <Resource Include="Content\Raporty\shipment.png" />
+    <Resource Include="Content\Raporty\statystyka.png" />
+    <Resource Include="Content\Raporty\ubezpieczenia.png" />
+    <Resource Include="Content\Raporty\vat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Narzędzia\barcode.png" />
+    <Resource Include="Content\Narzędzia\calendar.png" />
+    <Resource Include="Content\Narzędzia\gmail.png" />
+    <Resource Include="Content\Narzędzia\loupe.png" />
+    <Resource Include="Content\Narzędzia\money.png" />
+    <Resource Include="Content\Narzędzia\operacje bankowe.png" />
+    <Resource Include="Content\Narzędzia\plus.png" />
+    <Resource Include="Content\Narzędzia\printing.png" />
+    <Resource Include="Content\Narzędzia\profile.png" />
+    <Resource Include="Content\Narzędzia\question.png" />
+    <Resource Include="Content\Narzędzia\refresh.png" />
+    <Resource Include="Content\Narzędzia\settings.png" />
+    <Resource Include="Content\Narzędzia\wyciągi bankowe.png" />
+    <Resource Include="Content\Narzędzia\zamównienie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Menu Boczne\badania lekarskie.png" />
+    <Resource Include="Content\Menu Boczne\dokument.png" />
+    <Resource Include="Content\Menu Boczne\index.png" />
+    <Resource Include="Content\Menu Boczne\inventory.png" />
+    <Resource Include="Content\Menu Boczne\kartoteka.png" />
+    <Resource Include="Content\Menu Boczne\kasa.png" />
+    <Resource Include="Content\Menu Boczne\magazyn.png" />
+    <Resource Include="Content\Menu Boczne\oddział.png" />
+    <Resource Include="Content\Menu Boczne\offer.png" />
+    <Resource Include="Content\Menu Boczne\open_document.png" />
+    <Resource Include="Content\Menu Boczne\team.png" />
+    <Resource Include="Content\Menu Boczne\user.png" />
+    <Resource Include="Content\Menu Boczne\Zapytania.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\Entieties\DataBase_Firma.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataBase_Firma.Context.cs</LastGenOutput>
+      <DependentUpon>DataBase_Firma.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\Entieties\DataBase_Firma.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBase_Firma.edmx</DependentUpon>
+      <LastGenOutput>DataBase_Firma.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

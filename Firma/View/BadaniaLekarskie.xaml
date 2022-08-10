@@ -1,0 +1,157 @@
+﻿<UserControl x:Class="Firma.View.BadaniaLekarskie"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Firma.View"
+             mc:Ignorable="d" 
+            Height="900" Width="Auto"  >
+   <UserControl.Resources>
+      <ResourceDictionary Source="MainWindowResources.xaml"/>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+
+        <!--Label informacyjny-->
+        <Label Grid.Row="0" Content="Akta osobowe > Badania lekarskie" Style="{StaticResource LabelStandardowyI}"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="17*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Style="{StaticResource ButtonLupa}">
+                <Image Source="/Firma;component/Content/Narzędzia/loupe.png" />
+            </Button>
+            <TextBox Grid.Column="1" Text="Wyszukaj w tabeli..." Style="{StaticResource TextBoxStandardowy}" />
+
+            <Button Grid.Column="2" Style="{StaticResource ButtonLupa}">
+                <Image Source="/Firma;component/Content/Narzędzia/refresh.png" />
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Style="{StaticResource ButtonDodaj}">
+                <Image Source="/Firma;component/Content/Narzędzia/plus.png" />
+            </Button>
+            <ComboBox Grid.Column="1"  Style="{StaticResource ComboBoxStandardowy}">
+                <Image Source="/Firma;component/Content/Narzędzia/printing.png" />
+            </ComboBox>
+            <Button Grid.Column="3" Style="{StaticResource ButtonSettings}">
+                <Image Source="/Firma;component/Content/Narzędzia/settings.png" />
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="3">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition Style="{StaticResource ColumnSeparacyjnaStandardowa}"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Style="{StaticResource ColumnSeparacyjnaWieksza}"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Content="Okres do:" Style="{StaticResource LabelStandardowyII}"/>
+            <ComboBox Grid.Column="1" Style="{StaticResource ComboBoxStandardowy}">
+            </ComboBox>
+            <ComboBox Grid.Column="2" Style="{StaticResource ComboBoxStandardowy}">
+            </ComboBox>
+
+
+            <Grid Grid.Column="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <CheckBox Grid.Row="0" Content="Aktywni" Style="{StaticResource CheckBox}"/>
+                <CheckBox Grid.Row="1" Content="Nieaktywni" Style="{StaticResource CheckBox}"/>
+            </Grid>
+
+            <Grid Grid.Column="6">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <CheckBox Grid.Row="0" Content="Kobiety" Style="{StaticResource CheckBox}"/>
+                <CheckBox Grid.Row="1" Content="Mężczyźni" Style="{StaticResource CheckBox}"/>
+            </Grid>
+
+
+        </Grid>
+
+        <Grid Grid.Row="4">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Content="Kategorie" Style="{StaticResource LabelStandardowyI}"/>
+                <TextBox Grid.Row="1" Text="Wyszukaj kategorie..." Style="{StaticResource TextBoxStandardowy}" />
+                <CheckBox Grid.Row="2" Content="Kategorie" Style="{StaticResource CheckBoxII}"/>
+                <CheckBox Grid.Row="3" Content="Pokaż rekordy nieprzypisane do kategorii" Style="{StaticResource CheckBoxII}"/>
+
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+
+
+                <Grid Grid.Row="0">
+                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding IdBadan}"/>
+                            <DataGridTextColumn Header="Imie" Binding="{Binding Imie}"/>
+                            <DataGridTextColumn Header="Nazwisko" Binding="{Binding Nazwisko}"/>
+                            <DataGridTextColumn Header="Rodzaj badania" Binding="{Binding RodzajBadania}"/>
+                            <DataGridTextColumn Header="Data od" Binding="{Binding DataOd}"/>
+                            <DataGridTextColumn Header="Data do" Binding="{Binding DataDo}"/>
+                            <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
+                            <DataGridTextColumn Header="Uwagi" Binding="{Binding Uwagi}"/>
+                        </DataGrid.Columns>
+                        
+                    </DataGrid>
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+
+
+    </Grid>
+
+</UserControl>
